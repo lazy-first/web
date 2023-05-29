@@ -1,0 +1,411 @@
+
+/* -----------모달창----------- */
+#modal{
+    position: relative;
+}
+
+#modal .modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 5000;
+}
+#modal .modal-window {
+    background: white;
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 398px;
+    height: 742px;
+    position: relative;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#modal .title {
+    width: 358px;
+    height: 84px;
+    padding-left: 10px;
+    color: black;
+    margin : 0 0 30px;
+    padding : 56px 0 0;
+    text-align: center;
+}
+
+#modal .title .logo {
+    display: flex;
+    width: 93px;
+    height:28px;
+    text-align: center;
+    margin:0 auto;
+}
+
+#modal .close-area {
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+#modal .content {
+    margin-top: 20px;
+    padding: 0px 10px;
+    color: black;
+}
+
+#modal .title > h1 {
+    color: var(--theme-palette-colors-black-100);
+    font-weight: var(--text-weight-subtitle-bold);
+    text-align: center;
+    letter-spacing: var(--text-spacing-subtitle);
+    font-size: var(--text-size-subtitle);
+    line-height: var(--text-height-subtitle);
+    --text-size-subtitle: 24px;
+    --text-height-subtitle: 32px;
+    --text-spacing-subtitle: -0.023em;
+    width: 358px;
+    height: 32px;
+    margin : 16.08px 0;
+}
+
+#modal .title > h2 {
+    color: var(--theme-palette-colors-gray-600);
+    font-weight: var(--text-weight-subhead-normal);
+    text-align: center;
+    letter-spacing: var(--text-spacing-subhead);
+    font-size: var(--text-size-subhead);
+    line-height: var(--text-height-subhead);
+    margin-bottom: 45px;
+    margin-top : 11.62px;
+    height:40px;
+}
+
+.email_label {
+    height:20px;
+    margin-top:130px;
+}
+
+.email_input > input{
+    width:358px;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.errorMessageWrap > div{
+    margin-top : 8px;
+    color:red;
+    font-size: 12px;
+}
+
+.email_button {
+    width:100%;
+    height:70px;
+    margin-top:30px;
+    margin-bottom:10px;
+    border-radius:25px;
+}
+
+
+.email_button > button{
+    width:358px;
+    height:50px;
+    color: var(--theme-palette-colors-gray-300);
+    background-color: gainsboro;
+    border: none;
+    cursor: default;
+    border-radius:25px;
+    
+}
+
+.email_button button span {
+    font-weight:  var(--text-weight-body-bold);
+    text-align: left;
+    letter-spacing: var(--text-spacing-body);
+    font-size: var(--text-size-body);
+    line-height: var(--text-height-body);
+}
+
+.email_or {
+    margin-top: 5px;
+    margin-bottom : 15px;
+}
+
+.email_or > p {
+    text-align:center;
+}
+
+.sns_button {
+    width:358px;
+    height:78px;
+    display: flex;
+}
+
+.sns_button button {
+    width:89.5px;
+    height:100%;
+}
+
+.sns_button button span svg{
+    width:55px;
+    height:55px;
+}
+
+.forget {
+    width:358px;
+    height:52px;
+}
+
+.forget button {
+    width:358px;
+    height:52px;
+}
+
+.forget svg {
+    width:12px;
+    height:12px;
+    margin-left:3px;
+    display:inline-block;
+    fill:currentColor;
+}
+
+.information {
+    width:100%;
+    margin: 30px auto 15px auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.information a {
+    margin:0 auto;
+}
+
+/* 모달창 회원가임 */
+#modal_join {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#modal_join .modal_join-window {
+    background: white;
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 398px;
+    height: 742px;
+    position: relative;
+    padding: 20px;
+}
+
+#modal_join .title {
+    width: 358px;
+    height: 30px;
+    color: black;
+    padding : 10px 0 0;
+    text-align: center;
+}
+
+.modal_join-window .title .logo {
+    display: flex;
+    width: 93px;
+    height:28px;
+    text-align: center;
+    margin:0 auto;
+    padding-left: 25px;;
+}
+
+.modal_join-window .title .logo > h1 {
+    font-size:16px;
+}
+
+.modal_join-window .close-area {
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.name_label {
+    height:20px;
+    margin-top:30px;
+}
+
+.name_input > input{
+    width:358px;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.phonenumber_label {
+    margin-top:20px;
+}
+
+.phonenumber_country {
+    width:358px;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    align-items: center;
+    display:flex;
+}
+
+.certify {
+    width:100%;
+    height:70px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    border-radius:25px;
+    display: flex;
+}
+
+.phonenumber_input > input{
+    width:150;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+
+.certify > button{
+    width:150px;
+    height:50px;
+    color: var(--theme-palette-colors-gray-300);
+    background-color: gainsboro;
+    border: none;
+    cursor: default;
+    border-radius:25px;
+    margin-left:10px;
+}
+
+.certify button span {
+    font-weight:  var(--text-weight-body-bold);
+    text-align: left;
+    letter-spacing: var(--text-spacing-body);
+    font-size: var(--text-size-body);
+    line-height: var(--text-height-body);
+}
+
+.number_input > input{
+    width:358px;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+
+.password_label {
+    height:20px;
+    margin-top:130px;
+}
+
+.password_input > input{
+    width:358px;
+    height:50px;
+    padding:0 12px;
+    outline: 1px solid gainsboro;
+    background-color:transparent;
+    border: 1px solid var(--theme-palette-colors-bluegray-200);
+    color: var(--theme-palette-colors-gray-900);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+
+.password_label2 {
+    height:20px;
+    margin-bottom:30px;
+}
+
+.join_button {
+    width:100%;
+    height:70px;
+    margin-top:30px;
+    margin-bottom:10px;
+    border-radius:25px;
+}
+
+
+.join_button > button{
+    width:358px;
+    height:50px;
+    color: var(--theme-palette-colors-gray-300);
+    background-color: gainsboro;
+    border: none;
+    cursor: default;
+    border-radius:25px;
+    
+}
+
+.join_button button span {
+    font-weight:  var(--text-weight-body-bold);
+    text-align: left;
+    letter-spacing: var(--text-spacing-body);
+    font-size: var(--text-size-body);
+    line-height: var(--text-height-body);
+}
