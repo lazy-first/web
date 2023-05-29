@@ -1,16 +1,17 @@
 import React from "react";
 
-export default function SignUp({email}) {
+export default function SignUp({email, setOnModal}) {
+
+    const CloseOnClick = () => {
+        setOnModal(0)
+    }
+
     return(
         <>
             <div className="modal-overlay">
                 <div className="modal-window">
-                    <div className="close-area">X</div>
-                    {/* <div className="title">
-                        <span className="logo">
-                            <h1>회원가입</h1>
-                        </span>
-                    </div> */}
+                    <div className="close-area" onClick={CloseOnClick}>X</div>
+                    
                     <div className="name_label">
                         <label>이메일</label>
                     </div>
