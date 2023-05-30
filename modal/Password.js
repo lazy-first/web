@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { verifyPassword } from "../utils/verifyEmailAndPassword";
 
-export default function Password({setOnModal}) {
+export default function Password({email, setOnModal}) {
     const [pw, setPw] = useState("");
 
     const [pwValid, setPwValid] = useState(false);
@@ -20,7 +21,7 @@ export default function Password({setOnModal}) {
     }
 
     const CloseOnClick = () => {
-        setOnModal(0)
+        setOnModal(0);
     }
 
     useEffect(() => {
@@ -31,6 +32,23 @@ export default function Password({setOnModal}) {
         setNotAllow(true);
 
     }, [pwValid])
+
+    const LoginPass = () => {        
+        const pass = verifyPassword(pw)
+        if(pass) {
+            setOnModal(0);
+            localStorage.setItem("logIn", email)
+        }
+        
+    }
+
+    // const handleOnClick = () => {
+    //     const result = verifyEmail(email)
+    //     if(result) setOnModal(2)
+    //     else setOnModal(3)
+    // }
+
+
 
 
     return (
@@ -63,7 +81,7 @@ export default function Password({setOnModal}) {
                     }
                 </div>
                 <div className="email_button">
-                    <button type="submit" disabled={notAllow}>
+                    <button type="submit" disabled={notAllow} onClick={LoginPass}>
                         <span className = "btn-join" color="var(--theme-palette-colors-black-100)">로그인</span>
                     </button>
                 </div>

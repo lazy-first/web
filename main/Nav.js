@@ -1,10 +1,28 @@
 import React, {useState} from 'react';
 import './Nav.css'
 import Modal from '../modal/Modal';
+import { useEffect } from 'react';
 
 export default function HeaderNav(){
     const [onModal, setOnModal] = useState(0);
+    const [isLogin, setIsLogin] = useState(false);
     console.log(onModal);
+
+    const localId = localStorage.getItem("logIn");    
+
+    useEffect(()=>{
+        if(localId === null){
+            setIsLogin(false);
+        }else{
+            setIsLogin(true);
+        }
+    }, [onModal]);
+
+    const logOut = ()=>{
+        localStorage.clear();
+        setIsLogin(false);
+    }
+
     return(
         <>
             <Modal onModal={onModal} setOnModal={setOnModal}/>
@@ -59,9 +77,18 @@ export default function HeaderNav(){
                                     </a>
                                 </li>
                                 <li>
-                                    <button className="loginbutton" onClick={() => setOnModal(1)}>
-                                        회원가입/로그인
-                                    </button>
+                                    {
+                                        !isLogin &&
+                                            <button className="loginbutton" onClick={() => setOnModal(1)}>
+                                                회원가입/로그인
+                                            </button>
+                                    }
+                                    {
+                                        isLogin && 
+                                            <a className="servicebutton" onClick={logOut}>
+                                                로그아웃
+                                            </a>
+                                    }
                                 </li>
                                 <li>
                                     <a className="servicebutton" >

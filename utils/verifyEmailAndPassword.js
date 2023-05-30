@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const user = {email : 'wanted@gmail.com' , pw: 'wanted123!!'};
+const user = {email : 'wanted@gmail.com' , pw: 'wanted123!'};
 
 export function verifyEmail(id) {
     
@@ -9,9 +9,11 @@ export function verifyEmail(id) {
 
     return false;
 }
-export function verifyPaasword(password){
+
+export function verifyPassword(password){
     
     if(user.pw === password) return true;
+    
     return false;
 
 }

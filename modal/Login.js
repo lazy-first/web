@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import {verifyEmail, verifyPaasword} from "../utils/verifyEmailAndPassword";
+import { verifyEmail } from "../utils/verifyEmailAndPassword";
 
 
 export default function Login({setOnModal, email, setEmail}) {
