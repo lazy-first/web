@@ -16,7 +16,9 @@ export default function HeaderNav(){
         }else{
             setIsLogin(true);
         }
-    }, [onModal]);
+    }, [onModal]);  
+    //null을 쓸필요 없이 !로 표기하거나, if (localId)로 써도 true이므로
+    // if (localId) true false 순으로 써주면 더 간결하고 좋을듯
 
     const logOut = ()=>{
         localStorage.clear();
