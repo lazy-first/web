@@ -7,14 +7,33 @@ export default function Nav(){
     const [onModal, setOnModal] = useState(0);
     const [isLogin, setIsLogin] = useState(false);
 
-    const localId = localStorage.getItem("logIn");    
+    
+    // 카카오 로그인
+    //url 뒤에 넘어온 파라미터값이 있을 때, 로그인이 성공했다고 판단 -> 로그아웃버튼으로 변경
+    let params = new URL(document.URL).searchParams;
+    let code = params.get('code');
+
+    
 
     useEffect(()=>{
-        if(localId === null){
-            setIsLogin(false);
-        }else{
+        if(code){
             setIsLogin(true);
+            localStorage.setItem("logIn",code);
+
+            return
         }
+
+        // if(localId === null){
+        //     setIsLogin(false);
+        // }else{
+        //     setIsLogin(true);
+        // }
+
+        const localId = localStorage.getItem("logIn"); 
+
+        setIsLogin(localId) 
+
+
     }, [onModal]);  
     //null을 쓸필요 없이 !로 표기하거나, if (localId)로 써도 true이므로
     // if (localId) true false 순으로 써주면 더 간결하고 좋을듯
@@ -22,6 +41,7 @@ export default function Nav(){
     const logOut = ()=>{
         localStorage.clear();
         setIsLogin(false);
+        window.location.replace("/"); // replace를 쓰면 data 이동 불가
     }
 
     // console.log('header')
