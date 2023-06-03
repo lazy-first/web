@@ -1,10 +1,30 @@
 import React, {useState} from 'react';
 import './Nav.css'
 import Modal from '../modal/Modal';
+import { useEffect } from 'react';
 
-export default function HeaderNav(){
+export default function Nav(){
     const [onModal, setOnModal] = useState(0);
-    console.log(onModal);
+    const [isLogin, setIsLogin] = useState(false);
+
+    const localId = localStorage.getItem("logIn");    
+
+    useEffect(()=>{
+        if(localId === null){
+            setIsLogin(false);
+        }else{
+            setIsLogin(true);
+        }
+    }, [onModal]);  
+    //null을 쓸필요 없이 !로 표기하거나, if (localId)로 써도 true이므로
+    // if (localId) true false 순으로 써주면 더 간결하고 좋을듯
+
+    const logOut = ()=>{
+        localStorage.clear();
+        setIsLogin(false);
+    }
+
+    // console.log('header')
     return(
         <>
             <Modal onModal={onModal} setOnModal={setOnModal}/>
@@ -34,7 +54,7 @@ export default function HeaderNav(){
                                 <li><a href="/WdList">채용</a></li>
                                 <li><a href="#">이벤트</a></li>
                                 <li><a href="#">직군별 연봉</a></li>
-                                <li><a href="#">이력서</a></li>
+                                <li><a href="/Resume">이력서</a></li>
                                 <li><a href="#">커뮤니티</a></li>
                                 <li><a href="#">프리랜서</a></li>
                                 <li><a href="#">AI 합격예측</a></li>
@@ -59,9 +79,18 @@ export default function HeaderNav(){
                                     </a>
                                 </li>
                                 <li>
-                                    <button className="loginbutton" onClick={() => setOnModal(1)}>
-                                        회원가입/로그인
-                                    </button>
+                                    {
+                                        !isLogin &&
+                                            <button className="loginbutton" onClick={() => setOnModal(1)}>
+                                                회원가입/로그인
+                                            </button>
+                                    }
+                                    {
+                                        isLogin && 
+                                            <a className="servicebutton" onClick={logOut}>
+                                                로그아웃
+                                            </a>
+                                    }
                                 </li>
                                 <li>
                                     <a className="servicebutton" >

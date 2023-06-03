@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import HeaderNav from "../../main/Nav";
+import Nav from "../../main/Nav";
 import { useEffect } from "react";
 
 
@@ -13,7 +13,7 @@ export default () => {
     return (
         <>
         {/* 헤더 */}
-        <HeaderNav/>
+        <Nav/>
         {/* 컨텐츠 */}
         <Outlet/>
         {/* 푸터 */}

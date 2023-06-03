@@ -4,6 +4,7 @@ import WdList from "./pages/WdList";
 import { Routes, Route } from "react-router-dom";
 import Main from "./main/Main_wanted.js";
 import Layout from "./components/layouts/Layout";
+import Resume from "./pages/Resume";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="" element={<Layout/>}>
           <Route index element={<Main/>}/>
+          <Route path="/resume" element={<Resume/>} />
           <Route path="/wdlist" element={<WdList/>} />
           <Route path="/detailpage/:index" element={<DetailPage/>} />
         </Route>
